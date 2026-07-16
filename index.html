@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="id"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260716-05-1ab63ad"}');</script><script src="/_sdk/f432b76fb310b513.telemetry_sdk.js" integrity="sha512-9FJQ55EKmmqhyyik8BhrMVfm0+iYYfb8uOlRsjtkxJMEI97qOVEI4PnHohDjQAtvAep0IOEpdQ64eki0sz62ug=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bidang Analisis dan Kualitas Data Sensus Ekonomi 2026</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #2768dd;
+      --blue-deep: #1747ae;
+      --orange-shadow: rgba(154, 86, 0, .28);
+      --skin: #f0ae7b;
+      --skin-light: #ffd1a8;
+      --hair: #11111a;
+      --vest: #141a2a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Work Sans", sans-serif;
+      overflow-x: hidden;
+    }
+
+    .app-shell {
+      width: 100%;
+      min-height: calc(100 * min(var(--vh, 1vh), 1vh));
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 22px 28px 30px;
+    }
+
+    .app-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background-image:
+        linear-gradient(rgba(255,255,255,.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.15) 1px, transparent 1px);
+      background-size: 54px 54px;
+      opacity: .78;
+      pointer-events: none;
+    }
+
+    .app-shell::after {
+      content: "";
+      position: absolute;
+      width: 620px;
+      height: 620px;
+      right: -280px;
+      bottom: -250px;
+      z-index: -2;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 235, 135, .44), rgba(255, 182, 0, 0) 68%);
+      pointer-events: none;
+    }
+
+    .brand-bar {
+      box-shadow: 0 12px 25px rgba(139, 84, 0, .18);
+    }
+
+    .bps-symbol {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      border-radius: 10px;
+      position: relative;
+      background:
+        linear-gradient(135deg, #2e91c3 0 39%, transparent 40%),
+        linear-gradient(315deg, #65b566 0 43%, transparent 44%),
+        #f0f7fb;
+      box-shadow: inset 0 0 0 2px rgba(31,119,170,.18);
+    }
+
+    .bps-symbol::before,
+    .bps-symbol::after {
+      content: "";
+      position: absolute;
+      width: 7px;
+      border-radius: 99px;
+      background: #f2b93a;
+      transform: rotate(38deg);
+    }
+
+    .bps-symbol::before {
+      height: 24px;
+      left: 13px;
+      top: 5px;
+    }
+
+    .bps-symbol::after {
+      height: 15px;
+      left: 18px;
+      top: 10px;
+      background: #ffffff;
+    }
+
+    .se-bars {
+      height: 27px;
+      display: flex;
+      align-items: end;
+      gap: 3px;
+      padding: 1px 2px;
+    }
+
+    .se-bars span {
+      width: 5px;
+      border-radius: 2px;
+      background: #263a68;
+    }
+
+    .se-bars span:nth-child(1) { height: 10px; }
+    .se-bars span:nth-child(2) { height: 18px; }
+    .se-bars span:nth-child(3) { height: 25px; }
+
+    .menu-tile {
+      width: 126px;
+      min-height: 156px;
+      padding: 10px 9px 14px;
+      border: 0;
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 11px;
+      cursor: pointer;
+      box-shadow: 0 10px 0 rgba(20, 66, 159, .22), 0 16px 22px var(--orange-shadow);
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+
+    .menu-tile:hover {
+      transform: translateY(-8px) rotate(-1deg);
+      box-shadow: 0 15px 0 rgba(20, 66, 159, .18), 0 23px 29px rgba(132, 74, 0, .25);
+      filter: saturate(1.08);
+    }
+
+    .menu-tile:focus-visible {
+      outline: 4px solid rgba(255,255,255,.96);
+      outline-offset: 4px;
+      transform: translateY(-5px);
+    }
+
+    .icon-plate {
+      width: 78px;
+      height: 76px;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      border: 2px solid rgba(255,255,255,.86);
+      border-radius: 22px;
+      background: linear-gradient(145deg, #5e94ff, #245bc9);
+      box-shadow: inset 0 2px 0 rgba(255,255,255,.35), 0 6px 0 rgba(18, 66, 155, .46);
+    }
+
+    .folder-shape {
+      position: relative;
+      width: 64px;
+      height: 43px;
+      transform: rotate(-10deg);
+      border-radius: 5px 8px 8px 8px;
+      background: linear-gradient(135deg, #91c7ff, #2464d8);
+      box-shadow: 0 7px 0 #164aaa;
+    }
+
+    .folder-shape::before {
+      content: "";
+      width: 32px;
+      height: 15px;
+      position: absolute;
+      top: -10px;
+      left: 5px;
+      border-radius: 5px 6px 0 0;
+      background: #b8dcff;
+    }
+
+    .folder-shape::after {
+      content: "";
+      position: absolute;
+      inset: 9px 9px 10px 13px;
+      border-top: 3px solid rgba(255,255,255,.8);
+      border-bottom: 3px solid rgba(255,255,255,.56);
+    }
+
+    .mascot-zone {
+      min-height: 340px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: end;
+    }
+
+    .mascot-zone::after {
+      content: "";
+      position: absolute;
+      width: 290px;
+      height: 55px;
+      bottom: 8px;
+      border-radius: 50%;
+      background: rgba(128, 71, 0, .22);
+      filter: blur(6px);
+    }
+
+    .mascot {
+      position: relative;
+      width: 260px;
+      height: 325px;
+      z-index: 2;
+      transform: translateY(8px);
+      filter: drop-shadow(0 17px 14px rgba(121, 68, 0, .22));
+    }
+
+    .mascot-head {
+      position: absolute;
+      width: 133px;
+      height: 146px;
+      left: 71px;
+      top: 17px;
+      border-radius: 48% 48% 44% 44%;
+      background: radial-gradient(circle at 37% 28%, #ffe2c2 0 5%, transparent 6%), linear-gradient(125deg, var(--skin-light), var(--skin));
+      box-shadow: inset -13px -10px 0 rgba(179, 92, 48, .11);
+      z-index: 4;
+    }
+
+    .mascot-hair {
+      position: absolute;
+      width: 139px;
+      height: 74px;
+      left: 67px;
+      top: 0;
+      z-index: 5;
+      border-radius: 78% 38% 40% 24%;
+      background: var(--hair);
+      transform: rotate(-5deg);
+    }
+
+    .mascot-hair::before {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 60px;
+      left: -16px;
+      top: 19px;
+      border-radius: 80% 18% 72% 30%;
+      background: var(--hair);
+      transform: rotate(32deg);
+    }
+
+    .mascot-ear {
+      position: absolute;
+      width: 25px;
+      height: 36px;
+      top: 77px;
+      border-radius: 50%;
+      background: #eaa26d;
+      z-index: 3;
+    }
+
+    .mascot-ear.left { left: 57px; }
+    .mascot-ear.right { right: 50px; }
+
+    .eye {
+      position: absolute;
+      width: 19px;
+      height: 24px;
+      top: 73px;
+      z-index: 6;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: inset -2px -2px 0 rgba(0,0,0,.1);
+    }
+
+    .eye.left { left: 102px; }
+    .eye.right { left: 146px; }
+
+    .eye::after {
+      content: "";
+      position: absolute;
+      width: 9px;
+      height: 11px;
+      top: 8px;
+      left: 5px;
+      border-radius: 50%;
+      background: #191923;
+    }
+
+    .brow {
+      position: absolute;
+      width: 26px;
+      height: 7px;
+      top: 60px;
+      z-index: 7;
+      border-radius: 99px;
+      background: #412b24;
+    }
+
+    .brow.left { left: 98px; transform: rotate(-9deg); }
+    .brow.right { left: 143px; transform: rotate(9deg); }
+
+    .nose {
+      position: absolute;
+      width: 18px;
+      height: 14px;
+      left: 130px;
+      top: 99px;
+      z-index: 7;
+      border-radius: 48% 48% 55% 55%;
+      background: #d98254;
+      transform: rotate(-8deg);
+    }
+
+    .mouth {
+      position: absolute;
+      width: 51px;
+      height: 30px;
+      left: 112px;
+      top: 119px;
+      z-index: 7;
+      border-radius: 10px 10px 30px 30px;
+      background: #582d30;
+      overflow: hidden;
+      transform: rotate(-3deg);
+    }
+
+    .mouth::after {
+      content: "";
+      position: absolute;
+      width: 48px;
+      height: 11px;
+      top: -1px;
+      left: 1px;
+      border-radius: 0 0 12px 12px;
+      background: #fffaf2;
+    }
+
+    .mascot-neck {
+      position: absolute;
+      width: 52px;
+      height: 54px;
+      left: 111px;
+      top: 148px;
+      z-index: 3;
+      border-radius: 0 0 18px 18px;
+      background: #e69c68;
+    }
+
+    .mascot-body {
+      position: absolute;
+      width: 172px;
+      height: 165px;
+      left: 53px;
+      top: 167px;
+      z-index: 2;
+      border-radius: 70px 70px 22px 22px;
+      background: linear-gradient(145deg, #f4a716 0 26%, #1b2031 27% 72%, #101522 73%);
+      overflow: hidden;
+    }
+
+    .mascot-body::before {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 160px;
+      left: 81px;
+      top: 0;
+      background: rgba(255, 192, 36, .9);
+    }
+
+    .mascot-body::after {
+      content: "";
+      position: absolute;
+      left: 57px;
+      bottom: 27px;
+      width: 59px;
+      height: 22px;
+      border-radius: 4px;
+      background: #f3f4f5;
+      box-shadow: inset 0 -6px 0 #c6d2dc;
+    }
+
+    .arm {
+      position: absolute;
+      z-index: 1;
+      height: 31px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, #22293a, #111522);
+      transform-origin: right center;
+    }
+
+    .arm.left {
+      width: 115px;
+      left: -10px;
+      top: 192px;
+      transform: rotate(-16deg);
+    }
+
+    .arm.right {
+      width: 116px;
+      right: -12px;
+      top: 194px;
+      transform: rotate(15deg);
+      transform-origin: left center;
+    }
+
+    .hand {
+      position: absolute;
+      z-index: 2;
+      width: 53px;
+      height: 35px;
+      border-radius: 52% 48% 52% 48%;
+      background: linear-gradient(135deg, var(--skin-light), var(--skin));
+      box-shadow: inset -6px -5px 0 rgba(170, 82, 42, .13);
+    }
+
+    .hand.left {
+      left: -37px;
+      top: 173px;
+      transform: rotate(-22deg);
+    }
+
+    .hand.right {
+      right: -39px;
+      top: 177px;
+      transform: rotate(22deg);
+    }
+
+    .hand::before {
+      content: "";
+      position: absolute;
+      width: 17px;
+      height: 35px;
+      top: -9px;
+      border-radius: 99px;
+      background: inherit;
+    }
+
+    .hand.left::before {
+      left: 8px;
+      transform: rotate(-38deg);
+      box-shadow: 16px 7px 0 #efb180;
+    }
+
+    .hand.right::before {
+      right: 8px;
+      transform: rotate(38deg);
+      box-shadow: -16px 7px 0 #efb180;
+    }
+
+    .mascot-lanyard {
+      position: absolute;
+      width: 41px;
+      height: 80px;
+      left: 118px;
+      top: 178px;
+      z-index: 5;
+      border-left: 3px solid #f6d352;
+      border-right: 3px solid #f6d352;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .mascot-note {
+      z-index: 8;
+      box-shadow: 0 10px 22px rgba(126, 72, 0, .21);
+    }
+
+    .mascot-note::after {
+      content: "";
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      left: 24px;
+      bottom: -6px;
+      background: #ffffff;
+      transform: rotate(45deg);
+    }
+
+    .reveal {
+      animation: rise .65s ease both;
+    }
+
+    .reveal-late {
+      animation: rise .65s .15s ease both;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1023px) {
+      .mascot-zone {
+        min-height: 304px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .app-shell {
+        padding: 17px 16px 24px;
+      }
+
+      .app-shell::before {
+        background-size: 38px 38px;
+      }
+
+      .brand-bar {
+        gap: 9px;
+        padding: 9px 11px;
+      }
+
+      .menu-tile {
+        width: 108px;
+        min-height: 142px;
+        border-radius: 21px;
+      }
+
+      .icon-plate {
+        width: 66px;
+        height: 64px;
+        border-radius: 18px;
+      }
+
+      .mascot-zone {
+        min-height: 300px;
+      }
+
+      .mascot {
+        transform: scale(.9) translateY(17px);
+      }
+
+      .mascot-note {
+        right: 2px;
+      }
+    }
+  </style>
+  <script src="/_sdk/e3937a0574eb2d69.data_sdk.js" type="text/javascript" integrity="sha512-xbp/ACqEQy1aDxYMtXTrR3y5MUbzxuggRR/9sD48Gl4VhLMMCiAHsxMaFV6DTdeBpR6ymF+t2zhPKYkWM3+Jfw=="></script>
+  <script src="/_sdk/9432170dbd2ae0df.resizing_sdk.js" type="text/javascript" integrity="sha512-FeT+58sb1f9ejWPWFjCbJvTT+SDwGV+ngrHUnlO7TWEOoqwOLj6p256kO3vOL7DIWl1cIgrobiof8v2bOigwPg=="></script>
+ </head>
+ <body data-template-id="__page-root" style="background: linear-gradient(135deg, rgb(235, 165, 0), rgb(255, 201, 29), rgb(239, 170, 0));">
+  <div class="app-shell">
+   <header class="flex w-full justify-center reveal" aria-label="Identitas Sensus Ekonomi">
+    <div data-template-id="header-bar" class="brand-bar canva-banner flex items-center rounded-2xl px-4 py-2.5" style="background: rgb(255, 255, 255);">
+     <div data-template-id="bps-brand" class="canva-container flex items-center gap-2.5" style="color: rgb(33, 121, 157); font-weight: 700;"><span class="bps-symbol" aria-hidden="true"></span> <span class="leading-tight"> <strong class="block text-[10px] font-extrabold sm:text-xs">BADAN PUSAT STATISTIK</strong> <small class="block text-[8px] font-semibold tracking-wide sm:text-[9px]">PROVINSI SULAWESI TENGGARA</small> </span>
+     </div><span class="mx-3 h-8 w-px bg-slate-300" aria-hidden="true"></span>
+     <div data-template-id="sensus-brand" class="canva-container flex items-center gap-1.5" style="color: rgb(39, 57, 100); font-weight: 700;"><span class="se-bars" aria-hidden="true"><span></span><span></span><span></span></span> <span class="leading-tight"> <strong class="block text-[9px] font-extrabold">SENSUS</strong> <small class="block text-[8px] font-bold tracking-wider">EKONOMI<br>
+        2026</small> </span>
+     </div>
+    </div>
+   </header>
+   <main class="mx-auto w-full max-w-6xl">
+    <section class="reveal-late pt-7 text-center sm:pt-9" aria-labelledby="main-title">
+     <h1 id="main-title" data-template-id="page-title" class="canva-text mx-auto max-w-3xl drop-shadow-md" style="color: rgb(255, 255, 255); font-weight: 800; font-style: normal; font-size: 34px; letter-spacing: -0.03rem; line-height: 1.13;">Bidang Analisis dan Kualitas Data Sensus Ekonomi 2026</h1>
+    </section>
+    <section class="grid items-end gap-6 pt-7 lg:grid-cols-[1.08fr_.92fr]" aria-label="Menu microsite">
+     <div class="flex flex-col items-center lg:items-start">
+      <nav class="flex flex-wrap justify-center gap-4 sm:gap-5 lg:justify-start" aria-label="Navigasi utama"><button type="button" class="menu-tile canva-button" data-action="Virtual Backgroud" data-template-id="virtual-tile" style="background: linear-gradient(145deg, rgb(57, 122, 240), rgb(27, 78, 175));"> <span class="icon-plate"> <i data-lucide="image" aria-hidden="true" style="width:42px;height:42px;stroke-width:2.5"></i> </span> <span data-template-id="virtual-label" class="canva-text text-center leading-tight" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px; line-height: 1.1;">Virtual Backgroud</span> </button> <button type="button" class="menu-tile canva-button" data-action="Zoom Meeting" data-template-id="zoom-tile" style="background: linear-gradient(145deg, rgb(57, 122, 240), rgb(27, 78, 175));"> <span class="icon-plate"> <i data-lucide="video" aria-hidden="true" style="width:43px;height:43px;stroke-width:2.5"></i> </span> <span data-template-id="zoom-label" class="canva-text text-center leading-tight" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px; line-height: 1.1;">Zoom Meeting</span> </button> <button type="button" class="menu-tile canva-button" data-action="Daftar Hadir" data-template-id="attendance-tile" style="background: linear-gradient(145deg, rgb(57, 122, 240), rgb(27, 78, 175));"> <span class="icon-plate"> <i data-lucide="clipboard-check" aria-hidden="true" style="width:43px;height:43px;stroke-width:2.5"></i> </span> <span data-template-id="attendance-label" class="canva-text text-center leading-tight" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px; line-height: 1.1;">Daftar Hadir</span> </button>
+      </nav>
+      <nav class="mt-4 flex w-full justify-center lg:justify-start lg:pl-8" aria-label="Navigasi dokumen"><button type="button" class="menu-tile canva-button" data-action="Dokumen Pendukung" data-template-id="document-tile" style="background: linear-gradient(145deg, rgb(57, 122, 240), rgb(27, 78, 175));"> <span class="icon-plate"> <span class="folder-shape" aria-hidden="true"></span> </span> <span data-template-id="document-label" class="canva-text text-center leading-tight" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 15px; line-height: 1.1;">Dokumen Pendukung</span> </button>
+      </nav>
+      <p id="action-feedback" class="mt-5 min-h-7 rounded-full bg-white/25 px-4 py-1.5 text-center text-sm font-semibold text-white" aria-live="polite"></p>
+     </div>
+     <aside class="mascot-zone reveal-late" aria-label="Maskot penyambut">
+      <div data-template-id="mascot-note" class="mascot-note canva-tag absolute right-2 top-3 max-w-[180px] rounded-2xl px-4 py-3 text-center text-sm font-bold sm:right-5" style="background: rgb(255, 255, 255); color: rgb(36, 84, 183); font-weight: 700; font-style: normal; font-size: 14px; line-height: 1.25;">Selamat datang! Pilih menu untuk memulai.</div>
+      <div class="mascot" aria-hidden="true">
+       <div class="arm left"></div>
+       <div class="hand left"></div>
+       <div class="arm right"></div>
+       <div class="hand right"></div>
+       <div class="mascot-ear left"></div>
+       <div class="mascot-ear right"></div>
+       <div class="mascot-neck"></div>
+       <div class="mascot-body"></div>
+       <div class="mascot-lanyard"></div>
+       <div class="mascot-head"></div>
+       <div class="mascot-hair"></div>
+       <div class="brow left"></div>
+       <div class="brow right"></div>
+       <div class="eye left"></div>
+       <div class="eye right"></div>
+       <div class="nose"></div>
+       <div class="mouth"></div>
+      </div>
+     </aside>
+    </section>
+   </main>
+  </div>
+  <script src="/_sdk/b19ec5e9a6bcccbf.editing_sdk.js" integrity="sha512-zBJgQuXCQdyGFqXgZwfp8p9NowwbyuWhOK/NGHf9nps+IMSAyeeSyv3qhtfcnKWA9sWownxUevRqEhsjnjL55w=="></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+
+      const feedback = document.getElementById("action-feedback");
+      const feedbackMessages = {
+        "Virtual Backgroud": "Menu Virtual Backgroud dipilih.",
+        "Zoom Meeting": "Menu Zoom Meeting dipilih.",
+        "Daftar Hadir": "Menu Daftar Hadir dipilih.",
+        "Dokumen Pendukung": "Menu Dokumen Pendukung dipilih."
+      };
+
+      document.querySelectorAll("[data-action]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          feedback.textContent = feedbackMessages[button.dataset.action];
+        });
+      });
+    });
+  </script>
+ 
+</body></html>
